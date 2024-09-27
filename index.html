@@ -36,7 +36,7 @@
 							<span class="author-block">
                                 <a href="https://ziniuw.com/">Ziniu Wu<sup>1,2&dagger;</sup></a>,</span>
                             <span class="author-block">
-                                <a href="https://star-uu-wang.github.io/">Tianyu Wang<sup>1,3&dagger;</sup></a>,</span>
+                                <a href="https://star-uu-wang.github.io/">Tianyu Wang<sup>1&dagger;</sup></a>,</span>
                             <span class="author-block">
                                 <a href=" ">Zhaxizhuoma<sup>1&dagger;</sup></a>,</span>
 							<span class="author-block">
@@ -46,23 +46,23 @@
 							<span class="author-block">
 								<a href=" ">Dong Wang<sup>1</sup></a>,</span>
 							<span class="author-block">
-								<a href="https://scholar.xjtlu.edu.cn/en/persons/NieqingCao">Nieqing Cao<sup>4</sup></a>,</span>
+								<a href="https://scholar.xjtlu.edu.cn/en/persons/NieqingCao">Nieqing Cao<sup>3</sup></a>,</span>
 							<span class="author-block">
 								<a href="https://yding25.com/">Yan Ding<sup>1&ddagger;</sup></a>,</span>
 							<span class="author-block">
-								<a href="https://iopen.nwpu.edu.cn/info/1347/2105.htm">Bin Zhao<sup>1,5</sup></a>,</span>
+								<a href="https://iopen.nwpu.edu.cn/info/1347/2105.htm">Bin Zhao<sup>1,4</sup></a>,</span>
                             <span class="author-block">
-                                <a href="https://iopen.nwpu.edu.cn/info/1329/1171.htm">Xuelong Li<sup>1,6</sup></a></span>
+                                <a href="https://iopen.nwpu.edu.cn/info/1329/1171.htm">Xuelong Li<sup>1,5</sup></a></span>
                         </div>
 
-						<p style="margin-bottom:0.5em;">
+						<p style="margin-bottom:0.5em; text-align: center;">
 							<sup>1</sup> Shanghai AI Lab&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 							<sup>2</sup> University of Bristol&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-							<sup>3</sup> Fudan University&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-							<sup>4</sup> Xi'an Jiaotong-Liverpool University&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<!-- <sup>3</sup> Fudan University&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
+							<sup>3</sup> Xi'an Jiaotong-Liverpool University&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 							<br style="margin: 0; padding: 0;">
-							<sup>5</sup> Northwestern Polytechnical University&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-							<sup>6</sup> Institute of AI, China Telecom Corp Ltd&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<sup>4</sup> Northwestern Polytechnical University&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<sup>5</sup> Institute of AI, China Telecom Corp Ltd&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 						</p>
 
 						<span class="figure" style="margin-top: 0.1em; margin-bottom: 0;">
@@ -76,7 +76,7 @@
 						Our approach employs a decoupled design compatible with a wide range of grippers, while maintaining consistent observation perspectives, allowing models trained on handheld data to be directly applied to real robots. 
 						By directly estimating the end-effector pose, we eliminate the need for complex deployment and calibration in SLAM, thereby streamlining data processing. 
 						Fast-UMI provides supporting software tools for efficient data collection and conversion, facilitating rapid, plug-and-play functionality. 
-						This system offers an efficient and user-friendly tool for robotic learning data acquisition.
+						This system offers an efficient and user-friendly tool for robotic learning data acquisition. Supplementary materials for this work (including hardware CAD models, experimental scripts, demo data, etc.) can be found in <a href="https://drive.google.com/drive/folders/1GvLQ8oS7uJB4aZ4oWQpXNzOw_KFDwJQ8?usp=sharing">Google drive for Fast-UMI</a>.
 						</p>
 
 						<hr style="margin-top: 0em;">
@@ -84,6 +84,26 @@
 
 						<span class="figure" style="margin-top: 0.1em; margin-bottom: 0;">
 							<img src="images/highlights.png" width="100%" margin-top="0.5em" alt="" />
+							<div style="margin-bottom: 0.5em; text-align: center;">Various components of the Fast-UMI prototype device.</div>
+						</span>
+
+						<span class="figure" style="margin-top: 0.1em; margin-bottom: 0;">
+							<img src="images/observation.png" width="100%" margin-top="0.5em" alt="" />
+							<div style="margin-bottom: 0.5em; text-align: center;">The views captured by the GoPro cameras on the handheld device and the robot-mounted device, respectively, with the red dashed line indicating the ends of the fingertips.</div>
+						</span>
+
+						<span class="figure" style="margin-top: 0.1em; margin-bottom: 0;">
+							<img src="images/offset.png" width="100%" margin-top="0.5em" alt="" />
+							<div style="margin-bottom: 0.5em; text-align: center;">Evaluation of the <i>RealSense T265</i> trajectory accuracy compared to motion capture (MoCap) ground truth data. 
+								<br>
+								(a) Spatial trajectories along three axes: T265 measurements (red lines) and MoCap ground truth (green lines). 
+								<br>
+								(b) Positional errors of the T265 sensor relative to MoCap along the three axes.</div>
+						</span>
+
+						<span class="figure" style="margin-top: 0.1em; margin-bottom: 0;">
+							<img src="images/demo.png" width="100%" margin-top="0.5em" alt="" />
+							<div style="margin-bottom: 0.5em; text-align: center;">The task involves robotic manipulation to grasp a cup and place it into a sink. The first three images depict a human operator utilizing the Fast-UMI interface-mediated manipulation device to collect demonstration data. The subsequent two images show the robot executing an inferred action policy, trained on the collected data using the ACT algorithm.</div>
 						</span>
 						<!-- <div class="box alt" style="margin-bottom: 1em;">
 							<div class="row 50% uniform" style="width: 100%;">
@@ -118,7 +138,7 @@
 						</div> -->
 						<hr style="margin-top: 0em;">
 
-						<h3>Real-world Experiments</h3>
+						<h3>Real-world Demo</h3>
 
 						<!-- <p>
 						Flow Matching Policy has been tested on 10 tasks across Activities of Daily Living, and leads to consistently better performance than alternative behavior cloning methods. (Videos are 4x speed) 
@@ -186,6 +206,9 @@
 						Fast-UMI: A Scalable and Hardware-Independent Universal Manipulation Interface<br>
 						Ziniu Wu, Tianyu Wang, Zhaxizhuoma, Chuyue Guan, Zhongjie Jia, Dong Wang, Nieqing Cao, Yan Ding, Bin Zhao, Xuelong Li
 						</p>
+
+						<h3>Contact</h3>
+						<p>If you have any questions, please feel free to contact <a href="https://yding25.com/">Dr. Yan Ding</a>: yding25@binghamton.edu for feedbacks.</p>
 
 					</section>
 			</div>
