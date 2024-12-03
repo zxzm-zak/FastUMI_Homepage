@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FastUMI Dataset Visualizer</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <style>
+    #page-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      /* Semi-transparent black */
+      z-index: 9999;
+      /* Ensure it's on top */
+    }
+
+    .checkbox-container {
+      font-size: small;
+      margin-bottom: -0.75rem;
+    }
+
+    @media (min-width: 768px) {
+      #video-grid {
+        overflow-y: scroll;
+        /* Always show the vertical scrollbar */
+        max-height: 90vh;
+      }
+    }
+
+    .video-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.65);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      color: white;
+      /* White text */
+      display: flex;
+      justify-content: center;
+      text-align: center;
+      align-items: center;
+      font-size: 0.75rem;
+    }
+
+    .video-overlay:hover {
+      opacity: 1;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="page-overlay"></div>
+
+  <div class="container mt-3">
+    <div class="row">
+      <h1 class="d-md-block d-none">FastUMI Dataset Visualizer</h1>
+      <h3 class="d-block d-md-none">FastUMI Dataset Visualizer</h3>
+    </div>
+
+    <div class="row">
+      <div class="col-md-2 px-1 col-12">       
+
+        <div class="mb-2" id="task-checkbox-group">
+          <h5 class="mb-1">Task Types</h5>
+
+          <div class="checkbox-container">
+            <label for="task-all-checkbox">
+              <input type="checkbox" id="task-all-checkbox" checked>
+              All (<span id="task-all-count">0</span>)
+            </label>
+          </div>
+
+          <div class="checkbox-container">
+            <label for="task-1">
+              <input type="checkbox" class="task-checkbox" id="task-1">
+              open container (<span id="task-1-count">0</span>)
+            </label>
+          </div>
+
+          <div class="checkbox-container">
+            <label for="task-2">
+              <input type="checkbox" class="task-checkbox" id="task-2">
+              fold towel (<span id="task-2-count">0</span>)
+            </label>
+          </div>
+
+          <div class="checkbox-container">
+            <label for="task-3">
+              <input type="checkbox" class="task-checkbox" id="task-3">
+              pick bear (<span id="task-3-count">0</span>)
+            </label>
+          </div>
+
+          <div class="checkbox-container">
+            <label for="task-4">
+              <input type="checkbox" class="task-checkbox" id="task-4">
+              place plate (<span id="task-4-count">0</span>)
+            </label>
+          </div>
+
+          <div class="checkbox-container">
+            <label for="task-5">
+              <input type="checkbox" class="task-checkbox" id="task-5">
+              rearrange coke (<span id="task-5-count">0</span>)
+            </label>
+          </div>
+
+          <div class="checkbox-container">
+            <label for="task-6">
+              <input type="checkbox" class="task-checkbox" id="task-6">
+              sweep trash (<span id="task-6-count">0</span>)
+            </label>
+          </div>
+
+          <div class="checkbox-container">
+            <label for="task-7">
+              <input type="checkbox" class="task-checkbox" id="task-7">
+              clean table (<span id="task-7-count">0</span>)
+            </label>
+          </div>
+
+          <div class="checkbox-container">
+            <label for="task-8">
+              <input type="checkbox" class="task-checkbox" id="task-8">
+              unplug charger (<span id="task-8-count">0</span>)
+            </label>
+          </div>
+
+          <div class="checkbox-container">
+            <label for="task-9">
+              <input type="checkbox" class="task-checkbox" id="task-9">
+              pour coke (<span id="task-9-count">0</span>)
+            </label>
+          </div>
+
+          <div class="checkbox-container">
+            <label for="task-10">
+              <input type="checkbox" class="task-checkbox" id="task-10">
+              cover beef (<span id="task-10-count">0</span>)
+            </label>
+          </div>
+
+          <div class="checkbox-container">
+            <label for="task-11">
+              <input type="checkbox" class="task-checkbox" id="task-11">
+              hotdog in ricecooker (<span id="task-11-count">0</span>)
+            </label>
+          </div>
+
+          <div class="checkbox-container">
+            <label for="task-12">
+              <input type="checkbox" class="task-checkbox" id="task-12">
+              hotdog in roaster (<span id="task-12-count">0</span>)
+            </label>
+          </div>
+
+          <div class="checkbox-container">
+            <label for="task-13">
+              <input type="checkbox" class="task-checkbox" id="task-13">
+              pick lid (<span id="task-13-count">0</span>)
+            </label>
+          </div>
+
+          <div class="checkbox-container">
+            <label for="task-14">
+              <input type="checkbox" class="task-checkbox" id="task-14">
+              open drawer (<span id="task-14-count">0</span>)
+            </label>
+          </div>
+
+          <div class="checkbox-container">
+            <label for="task-15">
+              <input type="checkbox" class="task-checkbox" id="task-15">
+              open roaster (<span id="task-15-count">0</span>)
+            </label>
+          </div>
+
+          <div class="checkbox-container">
+            <label for="task-16">
+              <input type="checkbox" class="task-checkbox" id="task-16">
+              pick cup (<span id="task-16-count">0</span>)
+            </label>
+          </div>
+
+          <div class="checkbox-container">
+            <label for="task-17">
+              <input type="checkbox" class="task-checkbox" id="task-17">
+              pick pen (<span id="task-17-count">0</span>)
+            </label>
+          </div>
+
+          <div class="checkbox-container">
+            <label for="task-18">
+              <input type="checkbox" class="task-checkbox" id="task-18">
+              close ricecooker (<span id="task-18-count">0</span>)
+            </label>
+          </div>
+
+          <div class="checkbox-container">
+            <label for="task-19">
+              <input type="checkbox" class="task-checkbox" id="task-19">
+              open suitcase (<span id="task-19-count">0</span>)
+            </label>
+          </div>
+
+          <div class="checkbox-container">
+            <label for="task-20">
+              <input type="checkbox" class="task-checkbox" id="task-20">
+              pick bread (<span id="task-20-count">0</span>)
+            </label>
+          </div>
+
+          <div class="checkbox-container">
+            <label for="task-21">
+              <input type="checkbox" class="task-checkbox" id="task-21">
+              place pot (<span id="task-21-count">0</span>)
+            </label>
+          </div>
+
+          <div class="checkbox-container">
+            <label for="task-22">
+              <input type="checkbox" class="task-checkbox" id="task-22">
+              open ricecooker (<span id="task-22-count">0</span>)
+            </label>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="col" id="video-grid">
+        <div class="row">
+          <div class="col-md-3 p-1 d-flex">
+            <video class="border" autoplay loop muted playsinline width="100%" type="video/mp4"></video>
+            <div class="video-overlay p-3"><span></span></div>
+          </div>
+
+          <div class="col-md-3 p-1 d-flex">
+            <video class="border" autoplay loop muted playsinline width="100%" type="video/mp4"></video>
+            <div class="video-overlay p-3"><span></span></div>
+          </div>
+
+          <div class="col-md-3 p-1 d-flex">
+            <video class="border" autoplay loop muted playsinline width="100%" type="video/mp4"></video>
+            <div class="video-overlay p-3"><span></span></div>
+          </div>
+
+          <div class="col-md-3 p-1 d-flex">
+            <video class="border" autoplay loop muted playsinline width="100%" type="video/mp4"></video>
+            <div class="video-overlay p-3"><span></span></div>
+          </div>
+
+          <div class="col-md-3 p-1 d-flex">
+            <video class="border" autoplay loop muted playsinline width="100%" type="video/mp4"></video>
+            <div class="video-overlay p-3"><span></span></div>
+          </div>
+
+          <div class="col-md-3 p-1 d-flex">
+            <video class="border" autoplay loop muted playsinline width="100%" type="video/mp4"></video>
+            <div class="video-overlay p-3"><span></span></div>
+          </div>
+
+          <div class="col-md-3 p-1 d-flex">
+            <video class="border" autoplay loop muted playsinline width="100%" type="video/mp4"></video>
+            <div class="video-overlay p-3"><span></span></div>
+          </div>
+
+          <div class="col-md-3 p-1 d-flex">
+            <video class="border" autoplay loop muted playsinline width="100%" type="video/mp4"></video>
+            <div class="video-overlay p-3"><span></span></div>
+          </div>
+
+          <div class="col-md-3 p-1 d-flex">
+            <video class="border" autoplay loop muted playsinline width="100%" type="video/mp4"></video>
+            <div class="video-overlay p-3"><span></span></div>
+          </div>
+
+          <div class="col-md-3 p-1 d-flex">
+            <video class="border" autoplay loop muted playsinline width="100%" type="video/mp4"></video>
+            <div class="video-overlay p-3"><span></span></div>
+          </div>
+
+          <div class="col-md-3 p-1 d-flex">
+            <video class="border" autoplay loop muted playsinline width="100%" type="video/mp4"></video>
+            <div class="video-overlay p-3"><span></span></div>
+          </div>
+
+          <div class="col-md-3 p-1 d-flex">
+            <video class="border" autoplay loop muted playsinline width="100%" type="video/mp4"></video>
+            <div class="video-overlay p-3"><span></span></div>
+          </div>
+
+          <div class="col-md-3 p-1 d-flex">
+            <video class="border" autoplay loop muted playsinline width="100%" type="video/mp4"></video>
+            <div class="video-overlay p-3"><span></span></div>
+          </div>
+
+          <div class="col-md-3 p-1 d-flex">
+            <video class="border" autoplay loop muted playsinline width="100%" type="video/mp4"></video>
+            <div class="video-overlay p-3"><span></span></div>
+          </div>
+
+          <div class="col-md-3 p-1 d-flex">
+            <video class="border" autoplay loop muted playsinline width="100%" type="video/mp4"></video>
+            <div class="video-overlay p-3"><span></span></div>
+          </div>
+
+          <div class="col-md-3 p-1 d-flex">
+            <video class="border" autoplay loop muted playsinline width="100%" type="video/mp4"></video>
+            <div class="video-overlay p-3"><span></span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Video metadata
+    const videos = [
+    JSON.parse('{"src": "videos/dataset/pour_coke/compressed_temp_video_16.mp4", "task_id": "task-9"}'),
+    JSON.parse('{"src": "videos/dataset/pour_coke/compressed_temp_video_6.mp4", "task_id": "task-9"}'),
+    JSON.parse('{"src": "videos/dataset/pour_coke/compressed_temp_video_44.mp4", "task_id": "task-9"}'),
+    JSON.parse('{"src": "videos/dataset/pour_coke/compressed_temp_video_10.mp4", "task_id": "task-9"}'),
+    JSON.parse('{"src": "videos/dataset/pour_coke/compressed_temp_video_35.mp4", "task_id": "task-9"}'),
+    JSON.parse('{"src": "videos/dataset/pour_coke/compressed_temp_video_17.mp4", "task_id": "task-9"}'),
+    JSON.parse('{"src": "videos/dataset/pour_coke/compressed_temp_video_27.mp4", "task_id": "task-9"}'),
+    JSON.parse('{"src": "videos/dataset/pour_coke/compressed_temp_video_34.mp4", "task_id": "task-9"}'),
+    JSON.parse('{"src": "videos/dataset/pour_coke/compressed_temp_video_39.mp4", "task_id": "task-9"}'),
+    JSON.parse('{"src": "videos/dataset/pour_coke/compressed_temp_video_42.mp4", "task_id": "task-9"}'),
+    JSON.parse('{"src": "videos/dataset/place_plate/compressed_temp_video_24.mp4", "task_id": "task-4"}'),
+    JSON.parse('{"src": "videos/dataset/place_plate/compressed_temp_video_31.mp4", "task_id": "task-4"}'),
+    JSON.parse('{"src": "videos/dataset/place_plate/compressed_temp_video_45.mp4", "task_id": "task-4"}'),
+    JSON.parse('{"src": "videos/dataset/place_plate/compressed_temp_video_6.mp4", "task_id": "task-4"}'),
+    JSON.parse('{"src": "videos/dataset/place_plate/compressed_temp_video_25.mp4", "task_id": "task-4"}'),
+    JSON.parse('{"src": "videos/dataset/place_plate/compressed_temp_video_18.mp4", "task_id": "task-4"}'),
+    JSON.parse('{"src": "videos/dataset/place_plate/compressed_temp_video_41.mp4", "task_id": "task-4"}'),
+    JSON.parse('{"src": "videos/dataset/place_plate/compressed_temp_video_17.mp4", "task_id": "task-4"}'),
+    JSON.parse('{"src": "videos/dataset/place_plate/compressed_temp_video_48.mp4", "task_id": "task-4"}'),
+    JSON.parse('{"src": "videos/dataset/place_plate/compressed_temp_video_8.mp4", "task_id": "task-4"}'),
+    JSON.parse('{"src": "videos/dataset/close_ricecooker/compressed_temp_video_0.mp4", "task_id": "task-18"}'),
+    JSON.parse('{"src": "videos/dataset/pick_bread/compressed_temp_video_45.mp4", "task_id": "task-20"}'),
+    JSON.parse('{"src": "videos/dataset/pick_bread/compressed_temp_video_6.mp4", "task_id": "task-20"}'),
+    JSON.parse('{"src": "videos/dataset/pick_bread/compressed_temp_video_44.mp4", "task_id": "task-20"}'),
+    JSON.parse('{"src": "videos/dataset/pick_bread/compressed_temp_video_43.mp4", "task_id": "task-20"}'),
+    JSON.parse('{"src": "videos/dataset/pick_bread/compressed_temp_video_47.mp4", "task_id": "task-20"}'),
+    JSON.parse('{"src": "videos/dataset/pick_bread/compressed_temp_video_48.mp4", "task_id": "task-20"}'),
+    JSON.parse('{"src": "videos/dataset/pick_bread/compressed_temp_video_49.mp4", "task_id": "task-20"}'),
+    JSON.parse('{"src": "videos/dataset/pick_bread/compressed_temp_video_2.mp4", "task_id": "task-20"}'),
+    JSON.parse('{"src": "videos/dataset/pick_bread/compressed_temp_video_42.mp4", "task_id": "task-20"}'),
+    JSON.parse('{"src": "videos/dataset/pick_pen/compressed_temp_video_10.mp4", "task_id": "task-17"}'),
+    JSON.parse('{"src": "videos/dataset/pick_pen/compressed_temp_video_37.mp4", "task_id": "task-17"}'),
+    JSON.parse('{"src": "videos/dataset/pick_pen/compressed_temp_video_7.mp4", "task_id": "task-17"}'),
+    JSON.parse('{"src": "videos/dataset/pick_pen/compressed_temp_video_48.mp4", "task_id": "task-17"}'),
+    JSON.parse('{"src": "videos/dataset/pick_pen/compressed_temp_video_46.mp4", "task_id": "task-17"}'),
+    JSON.parse('{"src": "videos/dataset/pick_pen/compressed_temp_video_34.mp4", "task_id": "task-17"}'),
+    JSON.parse('{"src": "videos/dataset/pick_pen/compressed_temp_video_49.mp4", "task_id": "task-17"}'),
+    JSON.parse('{"src": "videos/dataset/pick_pen/compressed_temp_video_8.mp4", "task_id": "task-17"}'),
+    JSON.parse('{"src": "videos/dataset/pick_pen/compressed_temp_video_40.mp4", "task_id": "task-17"}'),
+    JSON.parse('{"src": "videos/dataset/pick_pen/compressed_temp_video_39.mp4", "task_id": "task-17"}'),
+    JSON.parse('{"src": "videos/dataset/pick_pen/compressed_temp_video_42.mp4", "task_id": "task-17"}'),
+    JSON.parse('{"src": "videos/dataset/unplug_charger/compressed_temp_video_1.mp4", "task_id": "task-8"}'),
+    JSON.parse('{"src": "videos/dataset/unplug_charger/compressed_temp_video_5.mp4", "task_id": "task-8"}'),
+    JSON.parse('{"src": "videos/dataset/unplug_charger/compressed_temp_video_4.mp4", "task_id": "task-8"}'),
+    JSON.parse('{"src": "videos/dataset/unplug_charger/compressed_temp_video_6.mp4", "task_id": "task-8"}'),
+    JSON.parse('{"src": "videos/dataset/unplug_charger/compressed_temp_video_3.mp4", "task_id": "task-8"}'),
+    JSON.parse('{"src": "videos/dataset/unplug_charger/compressed_temp_video_9.mp4", "task_id": "task-8"}'),
+    JSON.parse('{"src": "videos/dataset/unplug_charger/compressed_temp_video_10.mp4", "task_id": "task-8"}'),
+    JSON.parse('{"src": "videos/dataset/unplug_charger/compressed_temp_video_0.mp4", "task_id": "task-8"}'),
+    JSON.parse('{"src": "videos/dataset/unplug_charger/compressed_temp_video_7.mp4", "task_id": "task-8"}'),
+    JSON.parse('{"src": "videos/dataset/unplug_charger/compressed_temp_video_8.mp4", "task_id": "task-8"}'),
+    JSON.parse('{"src": "videos/dataset/unplug_charger/compressed_temp_video_2.mp4", "task_id": "task-8"}'),
+    JSON.parse('{"src": "videos/dataset/pick_bear/compressed_temp_video_5.mp4", "task_id": "task-3"}'),
+    JSON.parse('{"src": "videos/dataset/pick_bear/compressed_temp_video_16.mp4", "task_id": "task-3"}'),
+    JSON.parse('{"src": "videos/dataset/pick_bear/compressed_temp_video_9.mp4", "task_id": "task-3"}'),
+    JSON.parse('{"src": "videos/dataset/pick_bear/compressed_temp_video_41.mp4", "task_id": "task-3"}'),
+    JSON.parse('{"src": "videos/dataset/pick_bear/compressed_temp_video_26.mp4", "task_id": "task-3"}'),
+    JSON.parse('{"src": "videos/dataset/pick_bear/compressed_temp_video_43.mp4", "task_id": "task-3"}'),
+    JSON.parse('{"src": "videos/dataset/pick_bear/compressed_temp_video_17.mp4", "task_id": "task-3"}'),
+    JSON.parse('{"src": "videos/dataset/pick_bear/compressed_temp_video_48.mp4", "task_id": "task-3"}'),
+    JSON.parse('{"src": "videos/dataset/pick_bear/compressed_temp_video_34.mp4", "task_id": "task-3"}'),
+    JSON.parse('{"src": "videos/dataset/pick_bear/compressed_temp_video_49.mp4", "task_id": "task-3"}'),
+    JSON.parse('{"src": "videos/dataset/pick_bear/compressed_temp_video_20.mp4", "task_id": "task-3"}'),
+    JSON.parse('{"src": "videos/dataset/pick_bear/compressed_temp_video_40.mp4", "task_id": "task-3"}'),
+    JSON.parse('{"src": "videos/dataset/pick_bear/compressed_temp_video_36.mp4", "task_id": "task-3"}'),
+    JSON.parse('{"src": "videos/dataset/pick_bear/compressed_temp_video_42.mp4", "task_id": "task-3"}'),
+    JSON.parse('{"src": "videos/dataset/sweep_trash/compressed_temp_video_41.mp4", "task_id": "task-6"}'),
+    JSON.parse('{"src": "videos/dataset/sweep_trash/compressed_temp_video_0.mp4", "task_id": "task-6"}'),
+    JSON.parse('{"src": "videos/dataset/sweep_trash/compressed_temp_video_7.mp4", "task_id": "task-6"}'),
+    JSON.parse('{"src": "videos/dataset/sweep_trash/compressed_temp_video_47.mp4", "task_id": "task-6"}'),
+    JSON.parse('{"src": "videos/dataset/sweep_trash/compressed_temp_video_48.mp4", "task_id": "task-6"}'),
+    JSON.parse('{"src": "videos/dataset/sweep_trash/compressed_temp_video_46.mp4", "task_id": "task-6"}'),
+    JSON.parse('{"src": "videos/dataset/sweep_trash/compressed_temp_video_49.mp4", "task_id": "task-6"}'),
+    JSON.parse('{"src": "videos/dataset/sweep_trash/compressed_temp_video_32.mp4", "task_id": "task-6"}'),
+    JSON.parse('{"src": "videos/dataset/sweep_trash/compressed_temp_video_40.mp4", "task_id": "task-6"}'),
+    JSON.parse('{"src": "videos/dataset/sweep_trash/compressed_temp_video_36.mp4", "task_id": "task-6"}'),
+    JSON.parse('{"src": "videos/dataset/sweep_trash/compressed_temp_video_33.mp4", "task_id": "task-6"}'),
+    JSON.parse('{"src": "videos/dataset/sweep_trash/compressed_temp_video_42.mp4", "task_id": "task-6"}'),
+    JSON.parse('{"src": "videos/dataset/fold_towel/compressed_temp_video_0.mp4", "task_id": "task-2"}'),
+    JSON.parse('{"src": "videos/dataset/fold_towel/compressed_temp_video_47.mp4", "task_id": "task-2"}'),
+    JSON.parse('{"src": "videos/dataset/fold_towel/compressed_temp_video_48.mp4", "task_id": "task-2"}'),
+    JSON.parse('{"src": "videos/dataset/fold_towel/compressed_temp_video_34.mp4", "task_id": "task-2"}'),
+    JSON.parse('{"src": "videos/dataset/fold_towel/compressed_temp_video_49.mp4", "task_id": "task-2"}'),
+    JSON.parse('{"src": "videos/dataset/fold_towel/compressed_temp_video_33.mp4", "task_id": "task-2"}'),
+    JSON.parse('{"src": "videos/dataset/hotdog_in_ricecooker/compressed_temp_video_41.mp4", "task_id": "task-11"}'),
+    JSON.parse('{"src": "videos/dataset/hotdog_in_ricecooker/compressed_temp_video_21.mp4", "task_id": "task-11"}'),
+    JSON.parse('{"src": "videos/dataset/open_drawer/compressed_temp_video_1.mp4", "task_id": "task-14"}'),
+    JSON.parse('{"src": "videos/dataset/open_drawer/compressed_temp_video_15.mp4", "task_id": "task-14"}'),
+    JSON.parse('{"src": "videos/dataset/open_drawer/compressed_temp_video_5.mp4", "task_id": "task-14"}'),
+    JSON.parse('{"src": "videos/dataset/open_drawer/compressed_temp_video_14.mp4", "task_id": "task-14"}'),
+    JSON.parse('{"src": "videos/dataset/open_drawer/compressed_temp_video_11.mp4", "task_id": "task-14"}'),
+    JSON.parse('{"src": "videos/dataset/open_drawer/compressed_temp_video_16.mp4", "task_id": "task-14"}'),
+    JSON.parse('{"src": "videos/dataset/open_drawer/compressed_temp_video_4.mp4", "task_id": "task-14"}'),
+    JSON.parse('{"src": "videos/dataset/open_drawer/compressed_temp_video_6.mp4", "task_id": "task-14"}'),
+    JSON.parse('{"src": "videos/dataset/open_drawer/compressed_temp_video_3.mp4", "task_id": "task-14"}'),
+    JSON.parse('{"src": "videos/dataset/open_drawer/compressed_temp_video_9.mp4", "task_id": "task-14"}'),
+    JSON.parse('{"src": "videos/dataset/open_drawer/compressed_temp_video_10.mp4", "task_id": "task-14"}'),
+    JSON.parse('{"src": "videos/dataset/open_drawer/compressed_temp_video_0.mp4", "task_id": "task-14"}'),
+    JSON.parse('{"src": "videos/dataset/open_drawer/compressed_temp_video_13.mp4", "task_id": "task-14"}'),
+    JSON.parse('{"src": "videos/dataset/open_drawer/compressed_temp_video_7.mp4", "task_id": "task-14"}'),
+    JSON.parse('{"src": "videos/dataset/open_drawer/compressed_temp_video_17.mp4", "task_id": "task-14"}'),
+    JSON.parse('{"src": "videos/dataset/open_drawer/compressed_temp_video_8.mp4", "task_id": "task-14"}'),
+    JSON.parse('{"src": "videos/dataset/open_drawer/compressed_temp_video_2.mp4", "task_id": "task-14"}'),
+    JSON.parse('{"src": "videos/dataset/open_drawer/compressed_temp_video_12.mp4", "task_id": "task-14"}'),
+    JSON.parse('{"src": "videos/dataset/open_container/compressed_temp_video_1.mp4", "task_id": "task-1"}'),
+    JSON.parse('{"src": "videos/dataset/open_container/compressed_temp_video_5.mp4", "task_id": "task-1"}'),
+    JSON.parse('{"src": "videos/dataset/open_container/compressed_temp_video_4.mp4", "task_id": "task-1"}'),
+    JSON.parse('{"src": "videos/dataset/open_container/compressed_temp_video_6.mp4", "task_id": "task-1"}'),
+    JSON.parse('{"src": "videos/dataset/open_container/compressed_temp_video_3.mp4", "task_id": "task-1"}'),
+    JSON.parse('{"src": "videos/dataset/open_container/compressed_temp_video_0.mp4", "task_id": "task-1"}'),
+    JSON.parse('{"src": "videos/dataset/open_container/compressed_temp_video_7.mp4", "task_id": "task-1"}'),
+    JSON.parse('{"src": "videos/dataset/open_container/compressed_temp_video_2.mp4", "task_id": "task-1"}'),
+    JSON.parse('{"src": "videos/dataset/hotdog_in_roaster/compressed_temp_video_1.mp4", "task_id": "task-12"}'),
+    JSON.parse('{"src": "videos/dataset/hotdog_in_roaster/compressed_temp_video_5.mp4", "task_id": "task-12"}'),
+    JSON.parse('{"src": "videos/dataset/hotdog_in_roaster/compressed_temp_video_4.mp4", "task_id": "task-12"}'),
+    JSON.parse('{"src": "videos/dataset/hotdog_in_roaster/compressed_temp_video_6.mp4", "task_id": "task-12"}'),
+    JSON.parse('{"src": "videos/dataset/hotdog_in_roaster/compressed_temp_video_3.mp4", "task_id": "task-12"}'),
+    JSON.parse('{"src": "videos/dataset/hotdog_in_roaster/compressed_temp_video_9.mp4", "task_id": "task-12"}'),
+    JSON.parse('{"src": "videos/dataset/hotdog_in_roaster/compressed_temp_video_0.mp4", "task_id": "task-12"}'),
+    JSON.parse('{"src": "videos/dataset/hotdog_in_roaster/compressed_temp_video_7.mp4", "task_id": "task-12"}'),
+    JSON.parse('{"src": "videos/dataset/hotdog_in_roaster/compressed_temp_video_8.mp4", "task_id": "task-12"}'),
+    JSON.parse('{"src": "videos/dataset/hotdog_in_roaster/compressed_temp_video_2.mp4", "task_id": "task-12"}'),
+    JSON.parse('{"src": "videos/dataset/place_pot/compressed_temp_video_1.mp4", "task_id": "task-21"}'),
+    JSON.parse('{"src": "videos/dataset/place_pot/compressed_temp_video_5.mp4", "task_id": "task-21"}'),
+    JSON.parse('{"src": "videos/dataset/place_pot/compressed_temp_video_4.mp4", "task_id": "task-21"}'),
+    JSON.parse('{"src": "videos/dataset/place_pot/compressed_temp_video_3.mp4", "task_id": "task-21"}'),
+    JSON.parse('{"src": "videos/dataset/place_pot/compressed_temp_video_0.mp4", "task_id": "task-21"}'),
+    JSON.parse('{"src": "videos/dataset/place_pot/compressed_temp_video_2.mp4", "task_id": "task-21"}'),
+    JSON.parse('{"src": "videos/dataset/rearrange_coke/compressed_temp_video_14.mp4", "task_id": "task-5"}'),
+    JSON.parse('{"src": "videos/dataset/rearrange_coke/compressed_temp_video_28.mp4", "task_id": "task-5"}'),
+    JSON.parse('{"src": "videos/dataset/rearrange_coke/compressed_temp_video_47.mp4", "task_id": "task-5"}'),
+    JSON.parse('{"src": "videos/dataset/rearrange_coke/compressed_temp_video_34.mp4", "task_id": "task-5"}'),
+    JSON.parse('{"src": "videos/dataset/rearrange_coke/compressed_temp_video_20.mp4", "task_id": "task-5"}'),
+    JSON.parse('{"src": "videos/dataset/rearrange_coke/compressed_temp_video_21.mp4", "task_id": "task-5"}'),
+    JSON.parse('{"src": "videos/dataset/rearrange_coke/compressed_temp_video_30.mp4", "task_id": "task-5"}'),
+    JSON.parse('{"src": "videos/dataset/rearrange_coke/compressed_temp_video_42.mp4", "task_id": "task-5"}'),
+    JSON.parse('{"src": "videos/dataset/cover_beef/compressed_temp_video_24.mp4", "task_id": "task-10"}'),
+    JSON.parse('{"src": "videos/dataset/cover_beef/compressed_temp_video_16.mp4", "task_id": "task-10"}'),
+    JSON.parse('{"src": "videos/dataset/cover_beef/compressed_temp_video_31.mp4", "task_id": "task-10"}'),
+    JSON.parse('{"src": "videos/dataset/cover_beef/compressed_temp_video_3.mp4", "task_id": "task-10"}'),
+    JSON.parse('{"src": "videos/dataset/cover_beef/compressed_temp_video_28.mp4", "task_id": "task-10"}'),
+    JSON.parse('{"src": "videos/dataset/cover_beef/compressed_temp_video_9.mp4", "task_id": "task-10"}'),
+    JSON.parse('{"src": "videos/dataset/cover_beef/compressed_temp_video_10.mp4", "task_id": "task-10"}'),
+    JSON.parse('{"src": "videos/dataset/cover_beef/compressed_temp_video_35.mp4", "task_id": "task-10"}'),
+    JSON.parse('{"src": "videos/dataset/cover_beef/compressed_temp_video_21.mp4", "task_id": "task-10"}'),
+    JSON.parse('{"src": "videos/dataset/cover_beef/compressed_temp_video_40.mp4", "task_id": "task-10"}'),
+    JSON.parse('{"src": "videos/dataset/cover_beef/compressed_temp_video_36.mp4", "task_id": "task-10"}'),
+    JSON.parse('{"src": "videos/dataset/open_ricecooker/compressed_temp_video_1.mp4", "task_id": "task-22"}'),
+    JSON.parse('{"src": "videos/dataset/open_ricecooker/compressed_temp_video_4.mp4", "task_id": "task-22"}'),
+    JSON.parse('{"src": "videos/dataset/open_ricecooker/compressed_temp_video_3.mp4", "task_id": "task-22"}'),
+    JSON.parse('{"src": "videos/dataset/open_ricecooker/compressed_temp_video_0.mp4", "task_id": "task-22"}'),
+    JSON.parse('{"src": "videos/dataset/open_ricecooker/compressed_temp_video_2.mp4", "task_id": "task-22"}'),
+    JSON.parse('{"src": "videos/dataset/pick_cup/compressed_temp_video_1.mp4", "task_id": "task-16"}'),
+    JSON.parse('{"src": "videos/dataset/pick_cup/compressed_temp_video_15.mp4", "task_id": "task-16"}'),
+    JSON.parse('{"src": "videos/dataset/pick_cup/compressed_temp_video_5.mp4", "task_id": "task-16"}'),
+    JSON.parse('{"src": "videos/dataset/pick_cup/compressed_temp_video_14.mp4", "task_id": "task-16"}'),
+    JSON.parse('{"src": "videos/dataset/pick_cup/compressed_temp_video_19.mp4", "task_id": "task-16"}'),
+    JSON.parse('{"src": "videos/dataset/pick_cup/compressed_temp_video_11.mp4", "task_id": "task-16"}'),
+    JSON.parse('{"src": "videos/dataset/pick_cup/compressed_temp_video_24.mp4", "task_id": "task-16"}'),
+    JSON.parse('{"src": "videos/dataset/pick_cup/compressed_temp_video_16.mp4", "task_id": "task-16"}'),
+    JSON.parse('{"src": "videos/dataset/pick_cup/compressed_temp_video_6.mp4", "task_id": "task-16"}'),
+    JSON.parse('{"src": "videos/dataset/pick_cup/compressed_temp_video_3.mp4", "task_id": "task-16"}'),
+    JSON.parse('{"src": "videos/dataset/pick_cup/compressed_temp_video_18.mp4", "task_id": "task-16"}'),
+    JSON.parse('{"src": "videos/dataset/pick_cup/compressed_temp_video_22.mp4", "task_id": "task-16"}'),
+    JSON.parse('{"src": "videos/dataset/pick_cup/compressed_temp_video_23.mp4", "task_id": "task-16"}'),
+    JSON.parse('{"src": "videos/dataset/pick_cup/compressed_temp_video_9.mp4", "task_id": "task-16"}'),
+    JSON.parse('{"src": "videos/dataset/pick_cup/compressed_temp_video_10.mp4", "task_id": "task-16"}'),
+    JSON.parse('{"src": "videos/dataset/pick_cup/compressed_temp_video_0.mp4", "task_id": "task-16"}'),
+    JSON.parse('{"src": "videos/dataset/pick_cup/compressed_temp_video_13.mp4", "task_id": "task-16"}'),
+    JSON.parse('{"src": "videos/dataset/pick_cup/compressed_temp_video_7.mp4", "task_id": "task-16"}'),
+    JSON.parse('{"src": "videos/dataset/pick_cup/compressed_temp_video_17.mp4", "task_id": "task-16"}'),
+    JSON.parse('{"src": "videos/dataset/pick_cup/compressed_temp_video_20.mp4", "task_id": "task-16"}'),
+    JSON.parse('{"src": "videos/dataset/pick_cup/compressed_temp_video_21.mp4", "task_id": "task-16"}'),
+    JSON.parse('{"src": "videos/dataset/pick_cup/compressed_temp_video_8.mp4", "task_id": "task-16"}'),
+    JSON.parse('{"src": "videos/dataset/pick_cup/compressed_temp_video_12.mp4", "task_id": "task-16"}'),
+    JSON.parse('{"src": "videos/dataset/clear_table/compressed_temp_video_3.mp4", "task_id": "task-7"}'),
+    JSON.parse('{"src": "videos/dataset/clear_table/compressed_temp_video_0.mp4", "task_id": "task-7"}'),
+    JSON.parse('{"src": "videos/dataset/clear_table/compressed_temp_video_37.mp4", "task_id": "task-7"}'),
+    JSON.parse('{"src": "videos/dataset/clear_table/compressed_temp_video_7.mp4", "task_id": "task-7"}'),
+    JSON.parse('{"src": "videos/dataset/clear_table/compressed_temp_video_49.mp4", "task_id": "task-7"}'),
+    JSON.parse('{"src": "videos/dataset/clear_table/compressed_temp_video_40.mp4", "task_id": "task-7"}'),
+    JSON.parse('{"src": "videos/dataset/open_suitcase/compressed_temp_video_0.mp4", "task_id": "task-19"}'),
+    JSON.parse('{"src": "videos/dataset/open_roaster/compressed_temp_video_1.mp4", "task_id": "task-15"}'),
+    JSON.parse('{"src": "videos/dataset/open_roaster/compressed_temp_video_5.mp4", "task_id": "task-15"}'),
+    JSON.parse('{"src": "videos/dataset/open_roaster/compressed_temp_video_4.mp4", "task_id": "task-15"}'),
+    JSON.parse('{"src": "videos/dataset/open_roaster/compressed_temp_video_6.mp4", "task_id": "task-15"}'),
+    JSON.parse('{"src": "videos/dataset/open_roaster/compressed_temp_video_3.mp4", "task_id": "task-15"}'),
+    JSON.parse('{"src": "videos/dataset/open_roaster/compressed_temp_video_9.mp4", "task_id": "task-15"}'),
+    JSON.parse('{"src": "videos/dataset/open_roaster/compressed_temp_video_0.mp4", "task_id": "task-15"}'),
+    JSON.parse('{"src": "videos/dataset/open_roaster/compressed_temp_video_7.mp4", "task_id": "task-15"}'),
+    JSON.parse('{"src": "videos/dataset/open_roaster/compressed_temp_video_8.mp4", "task_id": "task-15"}'),
+    JSON.parse('{"src": "videos/dataset/open_roaster/compressed_temp_video_2.mp4", "task_id": "task-15"}'),
+    JSON.parse('{"src": "videos/dataset/pick_lid/compressed_temp_video_15.mp4", "task_id": "task-13"}'),
+    JSON.parse('{"src": "videos/dataset/pick_lid/compressed_temp_video_31.mp4", "task_id": "task-13"}'),
+    JSON.parse('{"src": "videos/dataset/pick_lid/compressed_temp_video_22.mp4", "task_id": "task-13"}'),
+    JSON.parse('{"src": "videos/dataset/pick_lid/compressed_temp_video_41.mp4", "task_id": "task-13"}'),
+    JSON.parse('{"src": "videos/dataset/pick_lid/compressed_temp_video_35.mp4", "task_id": "task-13"}'),
+    JSON.parse('{"src": "videos/dataset/pick_lid/compressed_temp_video_47.mp4", "task_id": "task-13"}'),
+    JSON.parse('{"src": "videos/dataset/pick_lid/compressed_temp_video_27.mp4", "task_id": "task-13"}'),
+    JSON.parse('{"src": "videos/dataset/pick_lid/compressed_temp_video_2.mp4", "task_id": "task-13"}'),
+    JSON.parse('{"src": "videos/dataset/pick_lid/compressed_temp_video_39.mp4", "task_id": "task-13"}'),
+    ];
+
+    const filters = [
+      'task',
+    ];
+
+    const maxVisibleVideos = 16;
+
+    // Cache references to DOM elements
+    const videoGrid = document.getElementById('video-grid');
+    const videoElements = document.querySelectorAll('video');
+    const videoOverlays = document.querySelectorAll('.video-overlay');
+
+    // Cache references to filter DOM elements
+    const filterElements = {};
+    filters.forEach(filter => {
+      const checkboxes = document.querySelectorAll(`.${filter}-checkbox`);
+      const checkboxLabels = {};
+      const checkboxCounts = {};
+      checkboxes.forEach(checkbox => {
+        checkboxLabels[checkbox.id] = document.querySelector(`label[for='${checkbox.id}']`);;
+        checkboxCounts[checkbox.id] = document.getElementById(`${checkbox.id}-count`);
+      });
+      const allCheckbox = document.getElementById(`${filter}-all-checkbox`);
+      const allCheckboxCount = document.getElementById(`${filter}-all-count`)
+      filterElements[filter] = { checkboxes, checkboxLabels, checkboxCounts, allCheckbox, allCheckboxCount };
+    });
+
+    // Function to perform Fisher-Yates shuffle algorithm
+    function fisherYatesShuffle(array) {
+      for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+      }
+    }
+
+    // Generate array of indices for shuffling
+    const indices = Array.from({ length: videos.length }, (_, index) => index)
+    fisherYatesShuffle(indices)
+
+    // Create an IntersectionObserver to lazily load videos when they come into view
+    const lazyVideoObserver = new IntersectionObserver(function (entries, observer) {
+      entries.forEach(function (video) {
+        if (video.isIntersecting) {
+          video.target.load();
+          observer.unobserve(video.target);
+        }
+      });
+    });
+
+    // Function to get selected filters
+    function getSelectedValues(checkboxes) {
+      return Array.from(checkboxes).filter(filter => filter.checked).map(filter => filter.id);
+    }
+
+    // Function to filter videos based on selected filters
+    function filterVideos() {
+      // console.time('filterVideos');
+
+      // Stop all video observers
+      // lazyVideoObserver.disconnect();
+
+      // Hide the video grid temporarily to facilitate batch-like editing of the DOM
+      videoGrid.style.display = 'none';
+
+      // Get selected values for each filter
+      const selectedValuesPerFilter = {};
+      filters.forEach(filter => {
+        selectedValuesPerFilter[filter] = new Set(getSelectedValues(filterElements[filter].checkboxes));
+      });
+
+      // Initialize object to keep track of remaining counts for each filter value
+      const remainingCounts = {};
+      filters.forEach(filter => {
+        remainingCounts[filter] = {};
+        filterElements[filter].checkboxes.forEach(checkbox => {
+          remainingCounts[filter][checkbox.id] = 0;
+          remainingCounts[filter]['all'] = 0;
+        });
+      });
+
+      // Iterate through shuffled videos and apply filters
+      let visibleCount = 0, totalCount = 0;
+      let video, matchStatusArray, selectedValues, filterIndex, filter;
+      for (let i = 0; i < indices.length; i++) { // Slow
+        video = videos[indices[i]];
+
+        // Generate match status array for each filter
+        matchStatusArray = [];
+        for (filterIndex = 0; filterIndex < filters.length; filterIndex++) {
+          filter = filters[filterIndex];
+          selectedValues = selectedValuesPerFilter[filters[filterIndex]];
+          matchStatusArray.push(selectedValues.size === 0 || selectedValues.has(video[`${filter}_id`]));
+        }
+
+        // Increment remaining counts applicable filter values
+        for (filterIndex = 0; filterIndex < filters.length; filterIndex++) {
+          // Ignoring current filter, check if all other filters match
+          filter = filters[filterIndex];
+          if (matchStatusArray.every((status, statusIndex) => statusIndex === filterIndex || status)) {
+            remainingCounts[filter][video[`${filter}_id`]]++;
+            remainingCounts[filter]['all']++;
+          }
+        }
+
+        // Show videos that match all filters
+        if (matchStatusArray.every(status => status)) {
+          if (visibleCount < maxVisibleVideos) {
+            // Set source and poster of the video element
+            // videoElements[visibleCount].src = `https://droid-dataset.github.io/visualizer/${video.src}`;
+            // videoElements[visibleCount].poster = `https://droid-dataset.github.io/visualizer/${video.poster}`;
+            videoElements[visibleCount].src = `${video.src}`
+
+            // Make the video element visible
+            videoElements[visibleCount].style.display = '';
+
+            // Start observing the video element for lazy loading
+            // lazyVideoObserver.observe(videoElements[visibleCount]);
+
+            // Update the video overlay
+            videoOverlays[visibleCount].style.display = '';
+
+            visibleCount++;
+          }
+          totalCount++;
+        }
+      }
+
+
+      // Hide any unused video containers
+      for (let i = visibleCount; i < maxVisibleVideos; i++) {
+        videoElements[i].style.display = 'none';
+        videoElements[i].src = '';
+        videoOverlays[i].style.display = 'none';
+      }
+
+      // Reveal the video grid after applying DOM edits
+      videoGrid.style.display = '';
+
+      // Update checkbox labels to show remaining counts
+      filters.forEach(filter => {
+        filterElements[filter].checkboxes.forEach(checkbox => {
+          const label = filterElements[filter].checkboxLabels[checkbox.id];
+          const count = remainingCounts[filter][checkbox.id];
+          filterElements[filter].checkboxCounts[checkbox.id].textContent = count;
+          if (count === 0) {
+            checkbox.disabled = true;
+            label.classList.add('text-muted');
+          } else {
+            checkbox.disabled = false;
+            label.classList.remove('text-muted');
+          }
+        });
+        filterElements[filter].allCheckboxCount.textContent = remainingCounts[filter]['all'];
+      });
+
+      // Reshuffle indices
+      fisherYatesShuffle(indices);
+
+      // console.timeEnd('filterVideos');
+    }
+
+    // Function to set up listener for each group of checkboxes
+    function setupCheckboxGroupListener(checkboxGroupId, checkboxes, allCheckbox) {
+      document.getElementById(checkboxGroupId).addEventListener('change', function (event) {
+        // console.time('checkboxGroupEventListener');
+        if (event.target === allCheckbox) {
+          const noneSelected = Array.from(checkboxes).every(checkbox => !checkbox.checked);
+          if (noneSelected) allCheckbox.checked = true;
+
+          if (allCheckbox.checked) {
+            for (const checkbox of checkboxes) {
+              checkbox.checked = false;
+            }
+          }
+          filterVideos();
+        } else if (event.target.type === 'checkbox') {
+          const anySelected = getSelectedValues(checkboxes).length > 0;
+          allCheckbox.checked = !anySelected;
+          filterVideos();
+        }
+        // console.timeEnd('checkboxGroupEventListener');
+      });
+    }
+
+    // Set up event listener for checkbox group
+    filters.forEach(filter => {
+      const { checkboxes, allCheckbox } = filterElements[filter];
+      setupCheckboxGroupListener(`${filter}-checkbox-group`, checkboxes, allCheckbox);
+    });
+
+    // Initial filtering of videos
+    filterVideos();
+
+    // Hide page overlay used for preventing user interaction until DOM is ready
+    document.addEventListener('DOMContentLoaded', () => {
+      document.getElementById('page-overlay').style.display = 'none';
+    });
+  </script>
+</body>
+
+</html>
