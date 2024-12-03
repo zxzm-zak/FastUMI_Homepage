@@ -104,6 +104,18 @@
 
 					<!-- 第二行：代码和硬件链接 -->
 					<div class="link-row">
+
+						<span class="link-block">
+							<a target="_blank" href="" class="external-link button is-normal is-rounded is-dark">
+								<span class="icon">
+									<!-- Replace with database logo icon -->
+									<i class="fas fa-database"></i>
+								</span>
+								<span>Dataset (TBA)</span>
+							</a>
+						</span>
+
+
 						<span class="link-block">
 							<a target="_blank" href="https://github.com/YdingTeam/FastUMI_Data"
 								class="external-link button is-normal is-rounded is-dark">
@@ -255,8 +267,10 @@
 
 			<!-- ------------------- -->
 			<hr style="margin-top: 0em;">
-			<h3 id="demos-section" style="margin-bottom: 0.5em; color: #1E3A8A; font-size: 130%;">Dataset Visualization</h3>
-			We have collected 10,000 data samples across 20 tasks and will be uploading the dataset to Hugging Face shortly.
+			<h3 id="demos-section" style="margin-bottom: 0.5em; color: #1E3A8A; font-size: 130%;">Dataset Visualization
+			</h3>
+			We have collected 10,000 data samples across 20 tasks and will be uploading the dataset to Hugging Face
+			shortly.
 			<iframe src="visualizer.html" width="100%" height="800px" style="border: none;"></iframe>
 
 			<!-- ------------------- -->
@@ -419,13 +433,14 @@
 			<h3 style="margin-bottom: 0.5em; color: #1E3A8A; font-size: 130%;">RealSense T265 Trajectory Accuracy</h3>
 
 			<p class="paper-paragraph" align="justify"></p>
-			We evaluated the <i>RealSense T265</i> trajectory accuracy compared to our motion capture (MoCap) ground truth data.
+			We evaluated the <i>RealSense T265</i> trajectory accuracy compared to our motion capture (MoCap) ground
+			truth data.
 
 			<span class="figure" style="margin-top: 0.1em; margin-bottom: 0; display: block; text-align: center;">
 				<img src="images/mocap.jpg" width="70%" style="margin-top: 0.5em;" alt="" />
 				<div style="margin-bottom: 1.5em; text-align: center;">
 				</div>
-			</span>			
+			</span>
 
 			<!-- Here is the table insertion -->
 			<div class="video-container" style="text-align: center; margin-top: 1em;">
@@ -433,7 +448,7 @@
 					<source src="videos/mocap_tasks/mocap_pick_cup.mp4" type="video/mp4">
 				</video>
 			</div>
-			
+
 			<table style="width:70%; border-collapse: collapse; margin: 1em auto;">
 				<caption style="font-size: 1.2em; color: black; margin-bottom: 1em;">
 					Trajectory Accuracy Statistics in '<span style="color: #8B0000;">Pick Cup</span>' Task
@@ -531,10 +546,18 @@
 				</caption>
 				<thead>
 					<tr>
-						<th style="border: 1px solid #ddd; padding: 4px; text-align: center; background-color: #f2f2f2;">Trajectory ID</th>
-						<th style="border: 1px solid #ddd; padding: 4px; text-align: center; background-color: #f2f2f2;">Max Error (mm)</th>
-						<th style="border: 1px solid #ddd; padding: 4px; text-align: center; background-color: #f2f2f2;">Mean Error (mm)</th>
-						<th style="border: 1px solid #ddd; padding: 4px; text-align: center; background-color: #f2f2f2;">Min Error (mm)</th>
+						<th
+							style="border: 1px solid #ddd; padding: 4px; text-align: center; background-color: #f2f2f2;">
+							Trajectory ID</th>
+						<th
+							style="border: 1px solid #ddd; padding: 4px; text-align: center; background-color: #f2f2f2;">
+							Max Error (mm)</th>
+						<th
+							style="border: 1px solid #ddd; padding: 4px; text-align: center; background-color: #f2f2f2;">
+							Mean Error (mm)</th>
+						<th
+							style="border: 1px solid #ddd; padding: 4px; text-align: center; background-color: #f2f2f2;">
+							Min Error (mm)</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -565,7 +588,8 @@
 					<tr>
 						<td style="border: 1px solid #ddd; padding: 4px; text-align: center;">Traj 5</td>
 						<td style="border: 1px solid #ddd; padding: 4px; text-align: center;">31.836</td>
-						<td style="border: 1px solid #ddd; padding: 4px; text-align: center;"><span style="color: #8B0000;">18.888</span></td>
+						<td style="border: 1px solid #ddd; padding: 4px; text-align: center;"><span
+								style="color: #8B0000;">18.888</span></td>
 						<td style="border: 1px solid #ddd; padding: 4px; text-align: center;">1.819</td>
 					</tr>
 					<tr>
@@ -600,7 +624,7 @@
 					</tr>
 				</tbody>
 			</table>
-			
+
 			<div class="video-container" style="text-align: center; margin-top: 1em;">
 				<video width="70%" controls>
 					<source src="videos/mocap_tasks/mocap_open_container.mp4" type="video/mp4">
@@ -613,10 +637,18 @@
 				</caption>
 				<thead>
 					<tr>
-						<th style="border: 1px solid #ddd; padding: 4px; text-align: center; background-color: #f2f2f2;">Trajectory ID</th>
-						<th style="border: 1px solid #ddd; padding: 4px; text-align: center; background-color: #f2f2f2;">Max Error (mm)</th>
-						<th style="border: 1px solid #ddd; padding: 4px; text-align: center; background-color: #f2f2f2;">Mean Error (mm)</th>
-						<th style="border: 1px solid #ddd; padding: 4px; text-align: center; background-color: #f2f2f2;">Min Error (mm)</th>
+						<th
+							style="border: 1px solid #ddd; padding: 4px; text-align: center; background-color: #f2f2f2;">
+							Trajectory ID</th>
+						<th
+							style="border: 1px solid #ddd; padding: 4px; text-align: center; background-color: #f2f2f2;">
+							Max Error (mm)</th>
+						<th
+							style="border: 1px solid #ddd; padding: 4px; text-align: center; background-color: #f2f2f2;">
+							Mean Error (mm)</th>
+						<th
+							style="border: 1px solid #ddd; padding: 4px; text-align: center; background-color: #f2f2f2;">
+							Min Error (mm)</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -629,7 +661,8 @@
 					<tr>
 						<td style="border: 1px solid #ddd; padding: 4px; text-align: center;">Traj 2</td>
 						<td style="border: 1px solid #ddd; padding: 4px; text-align: center;">27.754</td>
-						<td style="border: 1px solid #ddd; padding: 4px; text-align: center;"><span style="color: #8B0000;">15.484</span></td>
+						<td style="border: 1px solid #ddd; padding: 4px; text-align: center;"><span
+								style="color: #8B0000;">15.484</span></td>
 						<td style="border: 1px solid #ddd; padding: 4px; text-align: center;">5.122</td>
 					</tr>
 					<tr>
@@ -682,9 +715,9 @@
 					</tr>
 				</tbody>
 			</table>
-			
+
 			<br>
-			
+
 
 			<!-- ------------------- -->
 
