@@ -404,62 +404,6 @@
 			<br>
 			<br>
 
-			<!-- ------------------- -->
-
-			<!-- <hr style="margin-top: 0em;">
-			<h3 style="margin-bottom: 0.5em; color: #1E3A8A; font-size: 130%;">Visual Alignment and Consistency</h3>
-
-			<p class="paper-paragraph" align="justify"></p>
-			To ensure visual consistency between the handheld and robot-mounted devices, we established a visual
-			alignment guideline: <em style="font-weight: bold;">the bottom of the GoPro's fisheye lens image aligns with
-				the bottom of the gripper's fingertips</em>.
-			<br>
-			<br>
-			<p style="color:#8B0000;">Note: after trials, we found the marker wasn’t always fully recognized due to
-				distortion. The new version uses a smaller, more centered marker design.</p>
-			</p>
-
-
-			<br>
-			<span class="figure" style="margin-top: 0.1em; margin-bottom: 0;">
-				<img src="images/observation.png" width="100%" margin-top="0.5em" alt="" />
-				<div style="margin-bottom: 1.5em; text-align: center;">The views captured by the GoPro cameras on the
-					handheld device and the robot-mounted device, respectively, with the red dashed line indicating the
-					ends of the fingertips.</div>
-			</span> -->
-
-			<!-- ------------------- -->
-
-			<!-- <hr style="margin-top: 0em;">
-			<h3 style="margin-bottom: 0.5em; color: #1E3A8A; font-size: 130%;">RealSense T265 Trajectory Accuracy</h3>
-
-			<p class="paper-paragraph" align="justify"></p>
-			The T265 trajectory demonstrates an average positional error of <em style="font-weight: bold;">0.0237</em>
-			m.
-			While the T265 sensor provides reasonably accurate pose estimation suitable for many robotic manipulation
-			tasks, inherent biases and variances exist that should be accounted for in precision-critical applications.
-
-			<br>
-			<br>
-			<p style="color:#8B0000;">Note: After extensive data collection, we discovered several tricks to optimize
-				T265 accuracy. In the new version, SLAM error is much lower than 2 cm by using a more detailed
-				background, carefully managing speed and acceleration during collection, and other refinements.</p>
-
-			</p>
-
-			<br>
-
-			<span class="figure" style="margin-top: 0.1em; margin-bottom: 0;">
-				<img src="images/offset.png" width="100%" margin-top="0.5em" alt="" />
-				<div style="margin-bottom: 1.5em; text-align: center;">Evaluation of the <i>RealSense T265</i>
-					trajectory accuracy compared to motion capture (MoCap) ground truth data.
-					<br>
-					(a) Spatial trajectories along three axes: T265 measurements (red lines) and MoCap ground truth
-					(green lines).
-					(b) Positional errors of the T265 sensor relative to MoCap along the three axes.
-				</div>
-			</span> -->
-
 
 			<hr style="margin-top: 0em;">
 			<h3 style="margin-bottom: 0.5em; color: #1E3A8A; font-size: 130%;">RealSense T265 Trajectory Accuracy</h3>
@@ -566,188 +510,6 @@
 				</tbody>
 			</table>
 
-			<!-- <div class="video-container" style="text-align: center; margin-top: 1em;">
-				<video width="70%" controls>
-					<source src="videos/mocap_tasks/mocap_rearrange_coke.mp4" type="video/mp4">
-				</video>
-			</div>
-
-			<table style="width:70%; border-collapse: collapse; margin: 1em auto;">
-				<caption style="font-size: 1.2em; color: black; margin-bottom: 1em;">
-					Trajectory Accuracy Statistics in '<span style="color: #8B0000;">Rearrange Coke</span>' Task
-				</caption>
-				<thead>
-					<tr>
-						<th
-							style="border: 1px solid #ddd; padding: 4px; text-align: center; background-color: #f2f2f2;">
-							Trajectory ID</th>
-						<th
-							style="border: 1px solid #ddd; padding: 4px; text-align: center; background-color: #f2f2f2;">
-							Max Error (mm)</th>
-						<th
-							style="border: 1px solid #ddd; padding: 4px; text-align: center; background-color: #f2f2f2;">
-							Mean Error (mm)</th>
-						<th
-							style="border: 1px solid #ddd; padding: 4px; text-align: center; background-color: #f2f2f2;">
-							Min Error (mm)</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td style="border: 1px solid #ddd; padding: 4px; text-align: center;">Traj 1</td>
-						<td style="border: 1px solid #ddd; padding: 4px; text-align: center;">53.305</td>
-						<td style="border: 1px solid #ddd; padding: 4px; text-align: center;">35.971</td>
-						<td style="border: 1px solid #ddd; padding: 4px; text-align: center;">2.798</td>
-					</tr>
-					<tr>
-						<td style="border: 1px solid #ddd; padding: 4px; text-align: center;">Traj 2</td>
-						<td style="border: 1px solid #ddd; padding: 4px; text-align: center;">31.732</td>
-						<td style="border: 1px solid #ddd; padding: 4px; text-align: center;">20.569</td>
-						<td style="border: 1px solid #ddd; padding: 4px; text-align: center;">7.078</td>
-					</tr>
-					<tr>
-						<td style="border: 1px solid #ddd; padding: 4px; text-align: center;">Traj 3</td>
-						<td style="border: 1px solid #ddd; padding: 4px; text-align: center;">33.892</td>
-						<td style="border: 1px solid #ddd; padding: 4px; text-align: center;">21.002</td>
-						<td style="border: 1px solid #ddd; padding: 4px; text-align: center;">1.337</td>
-					</tr>
-					<tr>
-						<td style="border: 1px solid #ddd; padding: 4px; text-align: center;">Traj 4</td>
-						<td style="border: 1px solid #ddd; padding: 4px; text-align: center;">32.485</td>
-						<td style="border: 1px solid #ddd; padding: 4px; text-align: center;">20.188</td>
-						<td style="border: 1px solid #ddd; padding: 4px; text-align: center;">3.461</td>
-					</tr>
-					<tr>
-						<td style="border: 1px solid #ddd; padding: 4px; text-align: center;">Traj 5</td>
-						<td style="border: 1px solid #ddd; padding: 4px; text-align: center;">31.836</td>
-						<td style="border: 1px solid #ddd; padding: 4px; text-align: center;"><span
-								style="color: #8B0000;">18.888</span></td>
-						<td style="border: 1px solid #ddd; padding: 4px; text-align: center;">1.819</td>
-					</tr>
-					<tr>
-						<td style="border: 1px solid #ddd; padding: 4px; text-align: center;">Traj 6</td>
-						<td style="border: 1px solid #ddd; padding: 4px; text-align: center;">41.152</td>
-						<td style="border: 1px solid #ddd; padding: 4px; text-align: center;">22.166</td>
-						<td style="border: 1px solid #ddd; padding: 4px; text-align: center;">4.221</td>
-					</tr>
-					<tr>
-						<td style="border: 1px solid #ddd; padding: 4px; text-align: center;">Traj 7</td>
-						<td style="border: 1px solid #ddd; padding: 4px; text-align: center;">35.809</td>
-						<td style="border: 1px solid #ddd; padding: 4px; text-align: center;">21.103</td>
-						<td style="border: 1px solid #ddd; padding: 4px; text-align: center;">3.792</td>
-					</tr>
-					<tr>
-						<td style="border: 1px solid #ddd; padding: 4px; text-align: center;">Traj 8</td>
-						<td style="border: 1px solid #ddd; padding: 4px; text-align: center;">46.997</td>
-						<td style="border: 1px solid #ddd; padding: 4px; text-align: center;">24.885</td>
-						<td style="border: 1px solid #ddd; padding: 4px; text-align: center;">3.455</td>
-					</tr>
-					<tr>
-						<td style="border: 1px solid #ddd; padding: 4px; text-align: center;">Traj 9</td>
-						<td style="border: 1px solid #ddd; padding: 4px; text-align: center;">50.775</td>
-						<td style="border: 1px solid #ddd; padding: 4px; text-align: center;">22.464</td>
-						<td style="border: 1px solid #ddd; padding: 4px; text-align: center;">1.527</td>
-					</tr>
-					<tr>
-						<td style="border: 1px solid #ddd; padding: 4px; text-align: center;">Traj 10</td>
-						<td style="border: 1px solid #ddd; padding: 4px; text-align: center;">40.980</td>
-						<td style="border: 1px solid #ddd; padding: 4px; text-align: center;">25.654</td>
-						<td style="border: 1px solid #ddd; padding: 4px; text-align: center;">3.202</td>
-					</tr>
-				</tbody>
-			</table>
-
-			<div class="video-container" style="text-align: center; margin-top: 1em;">
-				<video width="70%" controls>
-					<source src="videos/mocap_tasks/mocap_open_container.mp4" type="video/mp4">
-				</video>
-			</div>
-
-			<table style="width:70%; border-collapse: collapse; margin: 1em auto;">
-				<caption style="font-size: 1.2em; color: black; margin-bottom: 1em;">
-					Trajectory Accuracy Statistics in '<span style="color: #8B0000;">Open Container</span>' Task
-				</caption>
-				<thead>
-					<tr>
-						<th
-							style="border: 1px solid #ddd; padding: 4px; text-align: center; background-color: #f2f2f2;">
-							Trajectory ID</th>
-						<th
-							style="border: 1px solid #ddd; padding: 4px; text-align: center; background-color: #f2f2f2;">
-							Max Error (mm)</th>
-						<th
-							style="border: 1px solid #ddd; padding: 4px; text-align: center; background-color: #f2f2f2;">
-							Mean Error (mm)</th>
-						<th
-							style="border: 1px solid #ddd; padding: 4px; text-align: center; background-color: #f2f2f2;">
-							Min Error (mm)</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td style="border: 1px solid #ddd; padding: 4px; text-align: center;">Traj 1</td>
-						<td style="border: 1px solid #ddd; padding: 4px; text-align: center;">33.759</td>
-						<td style="border: 1px solid #ddd; padding: 4px; text-align: center;">19.188</td>
-						<td style="border: 1px solid #ddd; padding: 4px; text-align: center;">3.156</td>
-					</tr>
-					<tr>
-						<td style="border: 1px solid #ddd; padding: 4px; text-align: center;">Traj 2</td>
-						<td style="border: 1px solid #ddd; padding: 4px; text-align: center;">27.754</td>
-						<td style="border: 1px solid #ddd; padding: 4px; text-align: center;"><span
-								style="color: #8B0000;">15.484</span></td>
-						<td style="border: 1px solid #ddd; padding: 4px; text-align: center;">5.122</td>
-					</tr>
-					<tr>
-						<td style="border: 1px solid #ddd; padding: 4px; text-align: center;">Traj 3</td>
-						<td style="border: 1px solid #ddd; padding: 4px; text-align: center;">39.383</td>
-						<td style="border: 1px solid #ddd; padding: 4px; text-align: center;">18.252</td>
-						<td style="border: 1px solid #ddd; padding: 4px; text-align: center;">2.949</td>
-					</tr>
-					<tr>
-						<td style="border: 1px solid #ddd; padding: 4px; text-align: center;">Traj 4</td>
-						<td style="border: 1px solid #ddd; padding: 4px; text-align: center;">31.612</td>
-						<td style="border: 1px solid #ddd; padding: 4px; text-align: center;">17.140</td>
-						<td style="border: 1px solid #ddd; padding: 4px; text-align: center;">7.226</td>
-					</tr>
-					<tr>
-						<td style="border: 1px solid #ddd; padding: 4px; text-align: center;">Traj 5</td>
-						<td style="border: 1px solid #ddd; padding: 4px; text-align: center;">33.925</td>
-						<td style="border: 1px solid #ddd; padding: 4px; text-align: center;">18.679</td>
-						<td style="border: 1px solid #ddd; padding: 4px; text-align: center;">8.624</td>
-					</tr>
-					<tr>
-						<td style="border: 1px solid #ddd; padding: 4px; text-align: center;">Traj 6</td>
-						<td style="border: 1px solid #ddd; padding: 4px; text-align: center;">33.701</td>
-						<td style="border: 1px solid #ddd; padding: 4px; text-align: center;">17.344</td>
-						<td style="border: 1px solid #ddd; padding: 4px; text-align: center;">7.785</td>
-					</tr>
-					<tr>
-						<td style="border: 1px solid #ddd; padding: 4px; text-align: center;">Traj 7</td>
-						<td style="border: 1px solid #ddd; padding: 4px; text-align: center;">25.033</td>
-						<td style="border: 1px solid #ddd; padding: 4px; text-align: center;">16.897</td>
-						<td style="border: 1px solid #ddd; padding: 4px; text-align: center;">1.974</td>
-					</tr>
-					<tr>
-						<td style="border: 1px solid #ddd; padding: 4px; text-align: center;">Traj 8</td>
-						<td style="border: 1px solid #ddd; padding: 4px; text-align: center;">25.708</td>
-						<td style="border: 1px solid #ddd; padding: 4px; text-align: center;">17.039</td>
-						<td style="border: 1px solid #ddd; padding: 4px; text-align: center;">5.362</td>
-					</tr>
-					<tr>
-						<td style="border: 1px solid #ddd; padding: 4px; text-align: center;">Traj 9</td>
-						<td style="border: 1px solid #ddd; padding: 4px; text-align: center;">29.989</td>
-						<td style="border: 1px solid #ddd; padding: 4px; text-align: center;">17.590</td>
-						<td style="border: 1px solid #ddd; padding: 4px; text-align: center;">7.107</td>
-					</tr>
-					<tr>
-						<td style="border: 1px solid #ddd; padding: 4px; text-align: center;">Traj 10</td>
-						<td style="border: 1px solid #ddd; padding: 4px; text-align: center;">30.561</td>
-						<td style="border: 1px solid #ddd; padding: 4px; text-align: center;">19.067</td>
-						<td style="border: 1px solid #ddd; padding: 4px; text-align: center;">3.365</td>
-					</tr>
-				</tbody>
-			</table> -->
-
 			<br>
 
 
@@ -837,7 +599,52 @@
 			<br>
 
 			<hr style="margin-top: 0em;">
+			<!-- Updates -->
+			<h3 id="demos-section" style="margin-bottom: 0.5em; color: #1E3A8A; font-size: 130%;">FastUMI 2.0 Updates
+			</h3>
+			<p class="paper-paragraph" align="justify">
+				In FastUMI 2.0, we have integrated a tactile module into the fingertip. We selected the 3D-ViTac
+				solution (<a href="https://arxiv.org/abs/2410.24091"
+					target="_blank">https://arxiv.org/abs/2410.24091</a>) for several reasons, such as the convenience
+				of cutting it into various sizes and its ability to handle severe deformation of the fingertip. Please
+				note that the original 3D-ViTac cannot be used directly, so we have implemented extensive optimizations.
 
+				Additionally, to address the discontinuation of the T265, we have adopted the RoboBaton Mini as a
+				replacement (<a href="https://www.hessian-matrix.com/"
+					target="_blank">https://www.hessian-matrix.com/</a>). We have successfully completed the
+				manufacturing of the prototype.
+			</p>
+
+			</p>
+			</p>
+			<div class="video-container" style="margin-top: 1em;">
+				<video width="48%" controls>
+					<source src="fastumi2.0/videos/fastumi2.0_tactile.mp4" type="video/mp4">
+				</video>
+				<!-- <video width="48%" controls>
+					<source src="videos/close_ricecooker.mp4" type="video/mp4">
+					Your browser does not support the video tag.
+				</video> -->
+				<!-- Replaced Video with Image -->
+  				<img src="fastumi2.0/images/robobaton_mini.png" width="35%" style="object-fit: cover; border-radius: 8px;">
+			</div>
+
+			<br>
+
+			<!-- <div class="video-container" style="margin-top: 1em;">
+				<video width="48%" controls>
+					<source src="videos/fold_towel.mp4" type="video/mp4">
+					Your browser does not support the video tag.
+				</video>
+				<video width="48%" controls>
+					<source src="videos/grasp_cola.mp4" type="video/mp4">
+					Your browser does not support the video tag.
+				</video>
+			</div>
+
+			<br> -->
+
+			<hr style="margin-top: 0em;">
 			<!-- 项目领导 -->
 			<h4 style="margin-bottom: 0.5em; color: #1E3A8A; font-size: 120%;">Project Leader</h4>
 			<div style="display: flex; justify-content: flex-start; flex-wrap: wrap; margin-bottom: 1em;">
