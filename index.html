@@ -77,131 +77,118 @@
 			</h2>
 
 			<div class="column has-text-centered">
-				<div class="publication-links">
-					<!-- 第一行：PDF短版本和长版本 -->
-					<div class="link-row">
-						<span class="link-block">
-							<a target="_blank" href="https://arxiv.org/abs/2409.19499"
-								class="external-link button is-normal is-rounded is-dark"
-								style="padding-left: 10px; padding-right: 10px;">
-								<span class="icon">
-									<i class="fas fa-file-pdf"></i>
-								</span>
-								<span>PDF (Early Version)</span>
-							</a>
+				<!-- 让这一层统一做flex-wrap -->
+				<div class="publication-links" style="
+					 display: flex; 
+					 flex-wrap: wrap; 
+					 gap: 10px; 
+					 justify-content: center;">
+
+					<!-- PDF Early Version -->
+					<a target="_blank" href="https://arxiv.org/abs/2409.19499"
+						class="external-link button is-normal is-rounded is-dark">
+						<span class="icon">
+							<i class="fas fa-file-pdf"></i>
 						</span>
+						<span>PDF (Early Version)</span>
+					</a>
 
-						<span class="link-block">
-							<a target="_blank" href="https://yding25.com/fastumi/fastumi.pdf"
-								class="external-link button is-normal is-rounded is-dark"
-								style="padding-left: 10px; padding-right: 10px;">
-								<span class="icon">
-									<i class="fas fa-file-pdf"></i>
-								</span>
-								<span>PDF (TBA)</span>
-							</a>
+					<!-- PDF (TBA) -->
+					<a target="_blank" href="https://yding25.com/fastumi/fastumi.pdf"
+						class="external-link button is-normal is-rounded is-dark">
+						<span class="icon">
+							<i class="fas fa-file-pdf"></i>
 						</span>
-					</div>
+						<span>PDF</span>
+						<span class="tag is-warning" style="margin-left:8px; font-size:0.7em;">TBA</span>
+					</a>
 
-					<!-- 第二行：代码和硬件链接 -->
-					<div class="link-row">
-
-						<span class="link-block">
-							<a target="_blank" href="https://huggingface.co/datasets/IPEC-COMMUNITY/FastUMI-Data"
-								class="external-link button is-normal is-rounded is-dark">
-								<span class="icon">
-									<!-- Replace with database logo icon -->
-									<i class="fas fa-database"></i>
-								</span>
-								<span>Dataset</span>
-							</a>
+					<!-- Dataset -->
+					<a target="_blank" href="https://huggingface.co/datasets/IPEC-COMMUNITY/FastUMI-Data"
+						class="external-link button is-normal is-rounded is-dark">
+						<span class="icon">
+							<i class="fas fa-database"></i>
 						</span>
+						<span>Dataset</span>
+					</a>
 
-						<span class="link-block">
-							<a target="_blank" href="https://github.com/YdingTeam/FastUMI_Data"
-								class="external-link button is-normal is-rounded is-dark">
-								<span class="icon">
-									<i class="fab fa-github"></i>
-								</span>
-								<span>Data Collection Code</span>
-							</a>
+					<!-- Data Collection Code -->
+					<a target="_blank" href="https://github.com/YdingTeam/FastUMI_Data"
+						class="external-link button is-normal is-rounded is-dark">
+						<span class="icon">
+							<i class="fab fa-github"></i>
 						</span>
+						<span>Data Collection Code</span>
+					</a>
 
-						<span class="link-block">
-							<a target="_blank" href="https://github.com/example"
-								class="external-link button is-normal is-rounded is-dark">
-								<span class="icon">
-									<i class="fab fa-github"></i>
-								</span>
-								<span>ACT / DP Code (TBA)</span>
-							</a>
+					<!-- ACT/DP Code (TBA) -->
+					<a target="_blank" href="https://github.com/example"
+						class="external-link button is-normal is-rounded is-dark">
+						<span class="icon">
+							<i class="fab fa-github"></i>
 						</span>
-					</div>
+						<span>ACT / DP Code</span>
+						<span class="tag is-warning" style="margin-left:8px; font-size:0.7em;">TBA</span>
+					</a>
 
-					<!-- 第三行：视频链接 -->
-					<div class="link-row">
-
-						<span class="link-block">
-							<a target="_blank" href="https://fastumi.com/appendix"
-								class="external-link button is-normal is-rounded is-dark">
-								<span class="icon">
-									<i class="fas fa-table"></i>
-								</span>
-								<span>Hardware (3D Printing and Purchase)</span>
-							</a>
+					<!-- Hardware -->
+					<a target="_blank" href="https://fastumi.com/appendix"
+						class="external-link button is-normal is-rounded is-dark">
+						<span class="icon">
+							<i class="fas fa-table"></i>
 						</span>
+						<span>Hardware (3D Printing and Purchase)</span>
+					</a>
 
-						<span class="link-block">
-							<a target="_blank" href="https://youtu.be/ngRPo_EiHmQ"
-								class="external-link button is-normal is-rounded is-dark">
-								<span class="icon">
-									<i class="fas fa-video"></i>
-								</span>
-								<span>Hardware Installation Instruction</span>
-							</a>
+					<!-- Hardware Installation Video -->
+					<a target="_blank" href="https://youtu.be/ngRPo_EiHmQ"
+						class="external-link button is-normal is-rounded is-dark">
+						<span class="icon">
+							<i class="fas fa-video"></i>
 						</span>
-						<span class="link-block">
-							<a target="_blank" href="https://www.youtube.com/watch?v=PjwJ_dpnSCg"
-								class="external-link button is-normal is-rounded is-dark">
-								<span class="icon">
-									<i class="fas fa-video"></i>
-								</span>
-								<span>Data Collection Instruction</span>
-							</a>
-						</span>
-						<span class="link-block">
-							<a target="_blank" href="https://fastumi.com/images/wechat.jpg"
-								class="external-link button is-normal is-rounded is-dark">
-								<span class="icon">
-									<i class="fab fa-weixin"></i>
-								</span>
-								<span>WeChat</span>
-							</a>
-						</span>						
-						<span class="link-block">
-							<a target="_blank" href="https://discord.gg/3qtvj2FBTQ"
-								class="external-link button is-normal is-rounded is-dark">
-								<span class="icon">
-									<i class="fab fa-discord"></i>
-								</span>
-								<span>Discord</span>
-							</a>
-						</span>
+						<span>Hardware Installation Instruction</span>
+					</a>
 
-						<!-- <span class="link-block">
-							<a href="#demos-section" class="external-link button is-normal is-rounded is-dark">
-								<span class="icon">
-									<i class="fas fa-video"></i>
-								</span>
-								<span>Demos</span>
-							</a>
-						</span> -->
+					<!-- Data Collection Instruction -->
+					<a target="_blank" href="https://www.youtube.com/watch?v=PjwJ_dpnSCg"
+						class="external-link button is-normal is-rounded is-dark">
+						<span class="icon">
+							<i class="fas fa-video"></i>
+						</span>
+						<span>Data Collection Instruction</span>
+					</a>
 
-					</div>
+					<!-- WeChat -->
+					<a target="_blank" href="https://fastumi.com/images/wechat.jpg"
+						class="external-link button is-normal is-rounded is-dark">
+						<span class="icon">
+							<i class="fab fa-weixin"></i>
+						</span>
+						<span>WeChat</span>
+					</a>
+
+					<!-- Discord -->
+					<a target="_blank" href="https://discord.gg/3qtvj2FBTQ"
+						class="external-link button is-normal is-rounded is-dark">
+						<span class="icon">
+							<i class="fab fa-discord"></i>
+						</span>
+						<span>Discord</span>
+					</a>
+
+					<!-- FastUMI 2.0 -->
+					<a target="_blank" href="fastumi2.html" class="button is-normal is-rounded is-dark">
+						<span class="icon">
+							<i class="fas fa-fire"></i>
+						</span>
+						<span>Fast-UMI 2.0</span>
+						<span class="tag is-warning" style="margin-left:8px; font-size:0.7em;">TBA</span>
+					</a>
+
 				</div>
 			</div>
 
-
+			<!-- ------------------- -->
 			<style>
 				/* 调整按钮的文字颜色 */
 				.button.is-dark {
@@ -253,7 +240,6 @@
 			<br>
 
 			<!-- ------------------- -->
-			 
 			<hr style="margin-top: 0em;">
 			<h3 style="margin-bottom: 0.5em; color: #1E3A8A;">Physical prototypes of Fast-UMI system</h3>
 			<span class="figure" style="margin-top: 1em; margin-bottom: 0;">
@@ -851,7 +837,6 @@
 			<br>
 
 			<hr style="margin-top: 0em;">
-			<!-- <h3 style="margin-bottom: 0.5em; color: #1E3A8A; font-size: 130%;">Team</h3> -->
 
 			<!-- 项目领导 -->
 			<h4 style="margin-bottom: 0.5em; color: #1E3A8A; font-size: 120%;">Project Leader</h4>
