@@ -233,6 +233,35 @@
 					padding-left: 10px;
 					padding-right: 10px;
 				}
+
+				.bibtex-box {
+					font-size: 13px;
+					/* 适当缩小字体，使其更紧凑 */
+					line-height: 1.2;
+					/* 减少行距 */
+					margin: 0 auto;
+					/* 居中，去掉多余的边距 */
+					padding: 8px 15px 8px 5px;
+					/* 调整左侧 padding 让文本更靠左 */
+					overflow-x: auto;
+					/* 允许水平滚动 */
+					background-color: #f8f8f8;
+					/* 代码块背景色，增加可读性 */
+					border-radius: 5px;
+					/* 让边框更圆润 */
+					border: 1px solid #ccc;
+					/* 让边框更细 */
+					white-space: pre-wrap;
+					/* 让长文本换行 */
+					word-wrap: break-word;
+					/* 处理长单词 */
+					max-width: 100%;
+					/* 让它不会超出父容器 */
+					box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+					/* 轻微阴影，提升质感 */
+					text-align: left;
+					/* 确保文本左对齐 */
+				}
 			</style>
 
 			<br>
@@ -297,14 +326,15 @@
 
 			<!-- ------------------- -->
 			<hr style="margin-top: 0em;">
-			<h3 id="demos-section" style="margin-bottom: 0.5em; color: #1E3A8A; font-size: 130%;">Original ACT Demos</h3>
+			<h3 id="demos-section" style="margin-bottom: 0.5em; color: #1E3A8A; font-size: 130%;">Original ACT Demos
+			</h3>
 
 			<p class="paper-paragraph" align="justify">
 				A naive ACT algorithm is employed here to demonstrate the effectiveness of the 10K training samples we
 				collected, as well as the overall performance of our data collection system. &nbsp;</a>
 			<p style="color:#8B0000;">Note: The performance of the robot in the video is related to our adopted ACT
 				algorithm, and has no much connection to our FastUMI system.</p>
-			
+
 			<div class="video-container" style="margin-top: 1em;">
 				<video width="48%" controls>
 					<source src="videos/original_ACT/original_ACT_unplug_charge.mp4" type="video/mp4">
@@ -386,52 +416,55 @@
 					Your browser does not support the video tag.
 				</video>
 			</div>
-			
+
 			<br>
 
 			<!-- ------------------- -->
 			<hr style="margin-top: 0em;">
-			<h3 id="demos-section" style="margin-bottom: 0.5em; color: #1E3A8A; font-size: 130%;">Original Diffusion Policy Demos</h3>
+			<h3 id="demos-section" style="margin-bottom: 0.5em; color: #1E3A8A; font-size: 130%;">Original Diffusion
+				Policy Demos</h3>
 			<p class="paper-paragraph" align="justify">
 				A naive DP algorithm is employed here to demonstrate the effectiveness of the 10K training samples we
 				collected, as well as the overall performance of our data collection system. &nbsp;</a>
-			
-				<div class="video-container" style="margin-top: 1em;">
-					<video width="48%" controls>
-						<source src="videos/original_DP/original_DP_grasp_cola.mp4" type="video/mp4">
-						Your browser does not support the video tag.
-					</video>
-					<video width="48%" controls>
-						<source src="videos/original_DP/original_DP_unplug_charge.mp4" type="video/mp4">
-						Your browser does not support the video tag.
-					</video>
-				</div>
 
-				<div class="video-container" style="margin-top: 1em;">
-					<video width="48%" controls>
-						<source src="videos/original_DP/original_DP_pick_pen.mp4" type="video/mp4">
-						Your browser does not support the video tag.
-					</video>
-					<video width="48%" controls>
-						<source src="videos/original_DP/original_DP_move_trash.mp4" type="video/mp4">
-						Your browser does not support the video tag.
-					</video>
-				</div>
+			<div class="video-container" style="margin-top: 1em;">
+				<video width="48%" controls>
+					<source src="videos/original_DP/original_DP_grasp_cola.mp4" type="video/mp4">
+					Your browser does not support the video tag.
+				</video>
+				<video width="48%" controls>
+					<source src="videos/original_DP/original_DP_unplug_charge.mp4" type="video/mp4">
+					Your browser does not support the video tag.
+				</video>
+			</div>
+
+			<div class="video-container" style="margin-top: 1em;">
+				<video width="48%" controls>
+					<source src="videos/original_DP/original_DP_pick_pen.mp4" type="video/mp4">
+					Your browser does not support the video tag.
+				</video>
+				<video width="48%" controls>
+					<source src="videos/original_DP/original_DP_move_trash.mp4" type="video/mp4">
+					Your browser does not support the video tag.
+				</video>
+			</div>
 			<br>
 
 			<!-- ------------------- -->
 			<hr style="margin-top: 0em;">
-			<h3 id="demos-section" style="margin-bottom: 0.5em; color: #1E3A8A; font-size: 130%;">Depth-Enhanced Diffusion Policy Demos</h3>
+			<h3 id="demos-section" style="margin-bottom: 0.5em; color: #1E3A8A; font-size: 130%;">Depth-Enhanced
+				Diffusion Policy Demos</h3>
 			<p class="paper-paragraph" align="justify">
-				An Depth-Enhanced DP algorithm is employed here to demonstrate the effectiveness of the 10K training samples we
+				An Depth-Enhanced DP algorithm is employed here to demonstrate the effectiveness of the 10K training
+				samples we
 				collected, as well as the overall performance of our data collection system. &nbsp;</a>
-			
-				<div class="video-container" style="margin-top: 1em;">
-					<video width="90%" controls>
-						<source src="videos/depth-enhanced_DP/depth-enhanced_DP_open_ricecooker.mp4" type="video/mp4">
-						Your browser does not support the video tag.
-					</video>
-				</div>
+
+			<div class="video-container" style="margin-top: 1em;">
+				<video width="90%" controls>
+					<source src="videos/depth-enhanced_DP/depth-enhanced_DP_open_ricecooker.mp4" type="video/mp4">
+					Your browser does not support the video tag.
+				</video>
+			</div>
 			<br>
 			<br>
 
@@ -708,6 +741,7 @@
 				</div>
 			</div>
 
+			<br>
 
 			<!-- 主要贡献者 -->
 			<h4 style="margin-bottom: 0.5em; color: #1E3A8A; font-size: 120%;">Main Contributors</h4>
@@ -854,27 +888,23 @@
 
 			</div>
 			<!-- 继续按照相同的结构添加其他参与者 -->
-
-			<br>
-			<br>
 		</section>
 	</div>
 
 	<section class="section" id="BibTeX">
 		<div class="container is-max-widescreen content">
 			<h2 class="title">BibTeX</h2>
-			<pre style="font-size: 14px; line-height: 1.3; margin: 0; padding: 0; overflow-x: auto;">
-				<code style="display: block; white-space: pre-wrap; word-wrap: break-word;">
-	@article{wu2024fast,
-		title={FastUMI: A Scalable and Hardware-Independent Universal Manipulation Interface},
-		author={Wu, Ziniu and Wang, Tianyu and Guan, Chuyue and Jia, Zhongjie and Liang, Shuai and Song, Haoming and Qu, Delin and Wang, Dong and Wang, Zhigang and Cao, Nieqing and others},
-		journal={arXiv preprint arXiv:2409.19499},
-		year={2024}
-	}
-				</code>
+			<pre class="bibtex-box">@article{wu2024fast,
+    title={FastUMI: A Scalable and Hardware-Independent Universal Manipulation Interface},
+    author={Wu, Ziniu and Wang, Tianyu and Guan, Chuyue and Jia, Zhongjie and Liang, Shuai and Song, Haoming and 
+    Qu, Delin and Wang, Dong and Wang, Zhigang and Cao, Nieqing and others},
+    journal={arXiv preprint arXiv:2409.19499},
+    year={2024}
+}
 			</pre>
 		</div>
-	</section>
+	</section>	
+
 
 	<script src="assets/js/jquery.min.js"></script>
 	<script src="assets/js/jquery.poptrox.min.js"></script>
