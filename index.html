@@ -250,25 +250,13 @@
 
 			<hr style="margin-top: 0em;">
 			<h3 style="margin-bottom: 0.5em; color: #1E3A8A; font-size: 130%;">Project Overview</h3>
-			<p class="paper-paragraph" align="justify">
-				Collecting real-world manipulation trajectory data involving robotic arms is essential for developing
-				general-purpose action policies in robotic manipulation, yet such data remains scarce.
-				Existing methods face limitations such as high costs, labor intensity, hardware dependencies, and
-				complex setup requirements involving SLAM algorithms.
-				In this work, we introduce <em style="font-weight: bold;">FastUMI</em>, an interface-mediated
-				manipulation system comprising two key components: a <em style="font-weight: bold;">handheld device</em>
-				operated by humans for data collection and a <em style="font-weight: bold;">robot-mounted device</em>
-				used during policy inference.
-				Our approach employs a decoupled design compatible with a wide range of grippers while maintaining
-				consistent observation perspectives, allowing models trained on handheld-collected data to be directly
-				applied to real robots.
-				By directly obtaining the end-effector pose using existing commercial hardware products, we eliminate
-				the need for complex SLAM deployment and calibration, streamlining data processing.
-				FastUMI provides supporting software tools for efficient robot learning data collection and conversion,
-				facilitating rapid, plug-and-play functionality.
-				<em style="font-weight: bold;">This system offers an efficient and user-friendly tool for robotic
-					learning data acquisition.</em>
-				<!-- Supplementary materials for this work (including hardware CAD models, experimental scripts, demo data, etc.) can be found in <a href="https://drive.google.com/drive/folders/1GvLQ8oS7uJB4aZ4oWQpXNzOw_KFDwJQ8?usp=sharing">Google drive for FastUMI</a>. -->
+			<p class="paper-paragraph" align="justify" style="font-size: 100%;">
+				Real-world manipulation data involving robotic arms is crucial for developing generalist action
+				policies, yet such data remains scarce since existing data collection methods are hindered by high
+				costs, hardware dependencies, and complex setup requirements. In this work, we introduce <em
+					style="font-weight: bold;">FastUMI</em>, a substantial redesign of the Universal Manipulation
+				Interface (UMI) system that addresses these challenges by enabling rapid deployment, simplifying
+				hardware–software integration, and delivering robust performance in real-world data acquisition.
 			</p>
 			<br>
 
@@ -278,25 +266,26 @@
 			<h3 style="margin-bottom: 0.5em; color: #1E3A8A; font-size: 130%;">Contributions</h3>
 			<ul style="list-style-type: disc; margin-top: 0; padding-left: 1.5em; color: #333; font-size: 100%;">
 				<li style="margin-bottom: 0.5em;">
-					FastUMI is adaptable to most robotic arms, as we have conducted
-					a series of hardware and software designs.
+					1) FastUMI adopts a decoupled hardware design and incorporates extensive mechanical modifications,
+					removing dependencies on specialized robotic components while preserving consistent observation
+					perspectives.
 				</li>
 				<li style="margin-bottom: 0.5em;">
-					FastUMI employs the T265 for visual odometry, which can, to some extent, address visual occlusion
-					issues—critical for tasks involving articulated objects.
+					2) FastUMI refines the algorithmic pipeline by replacing complex Visual-Inertial Odometry (VIO)
+					implementations with an off-the-shelf tracking module, significantly reducing deployment complexity
+					while maintaining accuracy.
 				</li>
 				<li style="margin-bottom: 0.5em;">
-					FastUMI supports modular sensor designs, and versions 2.0 and 3.0 are set to launch soon.
+					3) FastUMI includes an ecosystem for data collection, verification, and integration with both
+					established and newly developed imitation learning algorithms, accelerating policy learning
+					advancement.
 				</li>
 				<li style="margin-bottom: 0.5em;">
-					FastUMI integrates with various imitation learning algorithms, supporting predictions of both the
-					relative position of the robotic arm's end-effector and the joint states.
-				</li>
-				<li style="margin-bottom: 0.5em;">
-					We have open-sourced a dataset containing 10,000 samples across 20 tasks. In the future, we will
-					progressively release datasets at the 100,000-sample scale.
+					4) We have open-sourced a high-quality dataset of over 10,000 real-world demonstration trajectories
+					spanning 22 everyday tasks, forming one of the most diverse UMI-like datasets to date.
 				</li>
 			</ul>
+
 			<br>
 
 			<!-- ------------------- -->
